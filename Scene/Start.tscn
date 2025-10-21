@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0qbd5t3b16vh"]
+
+[ext_resource type="Texture2D" uid="uid://cki2ow08vh58c" path="res://icon.svg" id="1_r305v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r305v"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="Theme" id="Theme_r305v"]
+Button/styles/hover = SubResource("StyleBoxFlat_r305v")
+Button/styles/normal = null
+
+[node name="Scene" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 200.0
+
+[node name="Panel" type="Panel" parent="Control"]
+custom_minimum_size = Vector2(220, 300)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 200.0
+
+[node name="ColorRect" type="ColorRect" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 216.0
+offset_bottom = 295.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/ColorRect"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 45.0
+offset_right = 183.0
+offset_bottom = 183.0
+texture = ExtResource("1_r305v")
+
+[node name="Label" type="Label" parent="Control/Panel/ColorRect"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 201.0
+offset_right = 139.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "哈哈哈哈"
+
+[node name="Button" type="Button" parent="Control"]
+self_modulate = Color(1, 1, 1, 0.19607843)
+custom_minimum_size = Vector2(220, 300)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = SubResource("Theme_r305v")
