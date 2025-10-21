@@ -1,60 +1,49 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0qbd5t3b16vh"]
 
-[ext_resource type="Texture2D" uid="uid://cki2ow08vh58c" path="res://icon.svg" id="1_r305v"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r305v"]
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-
-[sub_resource type="Theme" id="Theme_r305v"]
-Button/styles/hover = SubResource("StyleBoxFlat_r305v")
-Button/styles/normal = null
+[ext_resource type="Script" uid="uid://c5cwqktfbkl5n" path="res://Scripts/FollowMouse.gd" id="1_c7qte"]
+[ext_resource type="Texture2D" uid="uid://6t6txvp061oq" path="res://Assert/Texture/RoundSoftParticle.png" id="2_hcnmk"]
+[ext_resource type="FontFile" uid="uid://cal7bcxmsqnp4" path="res://Assert/Font/antiquity-print.ttf" id="3_wyf2n"]
 
 [node name="Scene" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
-custom_minimum_size = Vector2(150, 200)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 150.0
-offset_bottom = 200.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Control"]
-custom_minimum_size = Vector2(220, 300)
+[node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
-offset_right = 150.0
-offset_bottom = 200.0
+offset_right = 1919.0
+offset_bottom = 1080.0
+color = Color(0.18039216, 0.18039216, 0.18039216, 0.32156864)
 
-[node name="ColorRect" type="ColorRect" parent="Control/Panel"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 4.0
-offset_right = 216.0
-offset_bottom = 295.0
+[node name="BackGround" type="Sprite2D" parent="Control/ColorRect"]
 
-[node name="TextureRect" type="TextureRect" parent="Control/Panel/ColorRect"]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 45.0
-offset_right = 183.0
-offset_bottom = 183.0
-texture = ExtResource("1_r305v")
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(905, 540)
+script = ExtResource("1_c7qte")
 
-[node name="Label" type="Label" parent="Control/Panel/ColorRect"]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 201.0
-offset_right = 139.0
-offset_bottom = 224.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "哈哈哈哈"
+[node name="Player" type="Sprite2D" parent="Player"]
 
-[node name="Button" type="Button" parent="Control"]
-self_modulate = Color(1, 1, 1, 0.19607843)
-custom_minimum_size = Vector2(220, 300)
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-theme = SubResource("Theme_r305v")
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+color = Color(18.892157, 18.892157, 18.892157, 1)
+texture = ExtResource("2_hcnmk")
+
+[node name="Name" type="Label" parent="Player"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -24.0
+offset_right = 160.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wyf2n")
+theme_override_font_sizes/font_size = 32
+text = "Happy Birthday!"
